@@ -6,6 +6,7 @@ import HomeScreen from "../screens/HomeScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 import MapListingScreen from "../screens/MapListingScreen";
 import FeedNavigator from "./FeedNavigator";
+import AuthNavigator from "./AuthVavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +38,7 @@ const AppNavigator = () => (
     />
     <Tab.Screen
       name="Sign In"
-      component={WelcomeScreen}
+      component={AuthNavigator}
       options={{
         headerShown: false,
         tabBarIcon: ({ color, size }) => (

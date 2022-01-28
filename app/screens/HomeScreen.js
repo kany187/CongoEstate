@@ -42,6 +42,7 @@ function HomeScreen({ navigation }) {
                   photos={item.photos}
                   address={item.address}
                   dimension={item.dimension}
+                  onPress={() => navigation.navigate("ListingDetails", item)}
                 />
               )}
             />

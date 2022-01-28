@@ -4,7 +4,7 @@ import AppButton from "../components/AppButton";
 
 import colors from "../config/colors";
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       style={styles.background}
@@ -17,8 +17,15 @@ function WelcomeScreen(props) {
         </Text>
       </View>
       <View style={styles.button}>
-        <AppButton title="Portail Agent" />
-        <AppButton title="Login / Register" color="secondary" />
+        <AppButton
+          title="Portail Agent"
+          onPress={() => navigation.navigate("Portal Agent")}
+        />
+        <AppButton
+          title="Login / Register"
+          color="secondary"
+          onPress={() => navigation.navigate("Login / Register")}
+        />
       </View>
     </ImageBackground>
   );

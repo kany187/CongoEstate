@@ -7,17 +7,21 @@ import AppText from "../components/AppText";
 
 import colors from "../config/colors";
 
-function ListingDetailScreen(props) {
+function ListingDetailScreen({ route }) {
+  const listing = route.params;
+
   return (
     <View style={styles.container}>
-      <Image style={styles.imageDetail} source={require("../assets/pic.jpg")} />
+      <Image style={styles.imageDetail} source={listing.photos} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.detail}>
           <AppText style={styles.heading}>Details</AppText>
           <View style={styles.wrapper}>
-            <AppText style={styles.priceDetail}>Prix: $2,500</AppText>
-            <AppText style={styles.locationDetail}>Location: Nsele</AppText>
-            <AppText>Dimension: 20x20 m^2</AppText>
+            <AppText style={styles.priceDetail}>Prix: {listing.price}</AppText>
+            <AppText style={styles.locationDetail}>
+              Location: {listing.address}
+            </AppText>
+            <AppText>Dimension: {listing.dimension} m2</AppText>
           </View>
         </View>
         <View style={styles.detail}>

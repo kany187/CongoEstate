@@ -12,12 +12,12 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import MessageScreen from "./app/screens/MessageScreen";
 import AccountScreen from "./app/screens/AccountScreen";
 import LoginScreen from "./app/screens/LoginScreen";
+import AuthNavigator from "./app/navigation/AuthVavigator";
 
 export default function App() {
   return (
-    // <NavigationContainer>
-    //   <AppNavigator />
-    // </NavigationContainer>
-    <ListingEditScreen />
+    <NavigationContainer>
+      <OnBoardNavigator />
+    </NavigationContainer>
   );
 }
