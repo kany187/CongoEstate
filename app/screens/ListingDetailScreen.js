@@ -1,5 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Image, ScrollView } from "react-native";
+
+import ListItem from "../components/ListItem";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
 
@@ -24,6 +26,14 @@ function ListingDetailScreen(props) {
             Terrain a vendre a Nsele. A 20 min de l'areoport. Contacter nos
             agent pour en savoir plus sur l'achat.
           </AppText>
+        </View>
+        <View style={styles.detail}>
+          <AppText style={styles.userHeading}>Agent</AppText>
+          <ListItem
+            image={require("../assets/background.jpg")}
+            title="Congo Estate"
+            subTitle="10 Listing"
+          />
         </View>
       </ScrollView>
       <AppButton title="En savoir plus" />
@@ -62,6 +72,10 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     paddingTop: 10,
+  },
+  userHeading: {
+    fontSize: 30,
+    marginBottom: 10,
   },
 });
 

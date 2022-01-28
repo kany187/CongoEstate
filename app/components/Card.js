@@ -9,15 +9,17 @@ import {
 import colors from "../config/colors";
 import AppText from "./AppText";
 
-function Card({ price, photos, address, dimension, title, onPress, style }) {
+function Card({ price, photos, address, dimension, title, onPress }) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.container}>
         <View style={styles.cover}>
           <Image style={styles.image} source={photos} />
-          <View style={[styles.poster, style]}>
-            <AppText style={styles.nameTop}>{title}</AppText>
-          </View>
+          {title && (
+            <View style={styles.poster}>
+              <AppText style={styles.nameTop}>{title}</AppText>
+            </View>
+          )}
         </View>
         <AppText style={styles.priceDetail}>${price}</AppText>
         <View style={styles.detail}>

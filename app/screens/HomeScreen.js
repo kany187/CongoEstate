@@ -7,6 +7,7 @@ import {
   Platform,
   StatusBar,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { Searchbar } from "react-native-paper";
 import AppButton from "../components/AppButton";
@@ -31,20 +32,20 @@ function HomeScreen({ navigation }) {
             <Searchbar placeholder="Ville, Region" value={""} />
           </View>
           <AppText style={styles.subTitle}>Pres de chez vous</AppText>
-          <ScrollView style={styles.list}>
-            {property.map((card, index) => (
-              <Card
-                key={index}
-                photos={card.photos}
-                title={card.title}
-                price={card.price}
-                address={card.address}
-                dimension={card.dimension}
-                style={card.post}
-                onPress={() => navigation.navigate("ListingDetails", index)}
-              />
-            ))}
-          </ScrollView>
+          <View style={styles.list}>
+            <FlatList
+              data={listings}
+              keyExtractor={(listings) => listings.id.toString()}
+              renderItem={({ item }) => (
+                <Card
+                  price={item.price}
+                  photos={item.photos}
+                  address={item.address}
+                  dimension={item.dimension}
+                />
+              )}
+            />
+          </View>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -91,16 +92,16 @@ const styles = StyleSheet.create({
   post: {},
 });
 
-const property = [
+const listings = [
   {
+    id: 1,
     price: "2,500",
     photos: require("../assets/pic.jpg"),
     address: "Nsele",
     dimension: "20x20",
-    title: "Nouveau",
-    post: styles.post,
   },
   {
+    id: 2,
     price: "10,500",
     photos: require("../assets/pic.jpg"),
     address: "Maloukou",
@@ -108,6 +109,7 @@ const property = [
     title: "Nouveau",
   },
   {
+    id: 3,
     price: "2,500",
     photos: require("../assets/pic.jpg"),
     address: "Nsele",
@@ -115,6 +117,7 @@ const property = [
     title: "Nouveau",
   },
   {
+    id: 4,
     price: "2,500",
     photos: require("../assets/picFour.jpg"),
     address: "Nsele",
@@ -122,13 +125,14 @@ const property = [
     title: "Nouveau",
   },
   {
+    id: 5,
     price: "2,500",
     photos: require("../assets/picFive.jpg"),
     address: "Nsele",
     dimension: "20x20",
-    title: "Nouveau",
   },
   {
+    id: 6,
     price: "2,500",
     photos: require("../assets/picSix.jpg"),
     address: "Nsele",
@@ -136,13 +140,14 @@ const property = [
     title: "Nouveau",
   },
   {
+    id: 7,
     price: "2,500",
     photos: require("../assets/picSix.jpg"),
     address: "Nsele",
     dimension: "20x20",
-    title: "Nouveau",
   },
   {
+    id: 8,
     price: "2,500",
     photos: require("../assets/pic.jpg"),
     address: "Nsele",
@@ -150,6 +155,7 @@ const property = [
     title: "Nouveau",
   },
   {
+    id: 9,
     price: "2,500",
     photos: require("../assets/pic.jpg"),
     address: "Nsele",
@@ -157,6 +163,7 @@ const property = [
     title: "Nouveau",
   },
   {
+    id: 10,
     price: "2,500",
     photos: require("../assets/picTen.jpg"),
     address: "Nsele",
